@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem \"d:\\\\Codigos\\\\API\" -Exclude \"node_modules\" | ForEach-Object { $_.Name })",
+      "PowerShell(Get-ChildItem \"d:\\\\Codigos\\\\API\\\\prisma\" | ForEach-Object { $_.Name })",
+      "PowerShell(Get-ChildItem \"d:\\\\Codigos\\\\API\\\\generated\" -ErrorAction SilentlyContinue | ForEach-Object { $_.Name })",
+      "PowerShell(Get-ChildItem \"d:\\\\Codigos\\\\API\\\\generated\\\\prisma\" | ForEach-Object { $_.Name })",
+      "PowerShell(cd \"d:\\\\Codigos\\\\API\"; $job = Start-Job { node \"d:\\\\Codigos\\\\API\\\\server.js\" 2>&1 }; Start-Sleep -Seconds 3; Receive-Job $job; Stop-Job $job; Remove-Job $job)",
+      "PowerShell(Get-ChildItem \"d:\\\\Codigos\\\\API\\\\generated\\\\prisma\\\\runtime\" | ForEach-Object { $_.Name })",
+      "PowerShell(cd \"d:\\\\Codigos\\\\API\"; $job = Start-Job { node \"d:\\\\Codigos\\\\API\\\\server.js\" 2>&1 }; Start-Sleep -Seconds 4; Receive-Job $job; Stop-Job $job; Remove-Job $job)",
+      "PowerShell($proc = Get-NetTCPConnection -LocalPort 3000 -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess; if \\($proc\\) { Stop-Process -Id $proc -Force; \"Processo $proc encerrado\" } else { \"Porta 3000 livre\" })",
+      "PowerShell(cd \"d:\\\\Codigos\\\\API\"; $job = Start-Job { node \"d:\\\\Codigos\\\\API\\\\server.js\" 2>&1 }; Start-Sleep -Seconds 4; $output = Receive-Job $job; if \\($output\\) { $output } else { \"Servidor iniciado sem erros!\" }; Stop-Job $job; Remove-Job $job)"
+    ]
+  }
+}
